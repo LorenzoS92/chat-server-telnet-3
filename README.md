@@ -35,6 +35,8 @@ To use the server in localhost, you can connect via telnet:
 telnet localhost 10000
 ```
 
+Type a message and that message will be forwarded to all connected clients.
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
