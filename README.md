@@ -2,6 +2,7 @@
 
 Chat Server is a server written in GO that provides telnet chat functionality with the port :10000.
 Every connected client will receive text written from others client.
+
 Private project by Lorenzo Saraniti
 
 ## Prerequisites
@@ -10,7 +11,7 @@ To run the project you should have installed:
 
 [Docker](https://www.docker.com)
 
-Telnet if you've a Mac or OS without telnet preinstalled.
+[Telnet](https://it.wikipedia.org/wiki/Telnet) if you've a Mac or OS without telnet preinstalled.
 If you've a Mac you can [install it with Brew in Mac](https://brewinstall.org/how-to-install-telnet-on-mac-using-brew/)
 
 [make](https://www.gnu.org/software/make/), you could [install it with Brew in Mac](https://formulae.brew.sh/formula/make)
