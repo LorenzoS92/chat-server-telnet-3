@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  chat-server:
+    ports:
+      - '10000:10000'
+    build:
+      context: .
+    container_name: chat-server
+    deploy:
+      restart_policy:
+        condition: on-failure
+    tty: true
+    stdin_open: true
