@@ -11,11 +11,9 @@ To run the project you should have installed:
 
 [Docker](https://www.docker.com)
 
-[Telnet](https://it.wikipedia.org/wiki/Telnet) 
+[Telnet](https://it.wikipedia.org/wiki/Telnet) Please verify that your OS have Telnet preinstalled.  If you've a Mac you can [install it with Brew in Mac](https://brewinstall.org/how-to-install-telnet-on-mac-using-brew/)
 
-Please verify that your OS have Telnet preinstalled.  If you've a Mac you can [install it with Brew in Mac](https://brewinstall.org/how-to-install-telnet-on-mac-using-brew/)
-
-[make](https://www.gnu.org/software/make/), you could [install it with Brew in Mac](https://formulae.brew.sh/formula/make)
+[make](https://www.gnu.org/software/make/) You could [install it with Brew in Mac](https://formulae.brew.sh/formula/make)
 
 ## Run
 
