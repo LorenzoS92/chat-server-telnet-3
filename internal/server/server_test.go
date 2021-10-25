@@ -1,11 +1,12 @@
 package server
 
-import "testing"
+import (
+	"testing"
+)
 
 const errorPort = "10000"
 
 // As server will enter in for loop to hear tcp connection, I won't test the initializeConnection happy path
-// This is just for show that I will unit test written code.
 func TestServer_RunChatServer(t *testing.T) {
 	type fields struct {
 		Port string

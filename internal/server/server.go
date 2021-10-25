@@ -28,38 +28,50 @@ var connectedClients clients
 
 // RunChatServer starts the chat server
 func (s *Server) RunChatServer() error {
-	addresses, err := net.ResolveTCPAddr("tcp", s.Port)
+	listener, err := s.initializeListener()
 	if err != nil {
 		return err
+	}
+
+	for {
+		err = s.initializeConnection(listener)
+		if err != nil {
+			return err
+		}
+	}
+}
+
+func (s *Server) initializeListener() (*net.TCPListener, error) {
+	addresses, err := net.ResolveTCPAddr("tcp", s.Port)
+	if err != nil {
+		return nil, err
 	}
 
 	listener, err := net.ListenTCP("tcp", addresses)
 	if err != nil {
-		return err
+		return nil, err
 	}
-
-	return s.initializeConnection(listener)
+	return listener, nil
 }
 
 func (s *Server) initializeConnection(listener *net.TCPListener) error {
-	for {
-		conn, err := listener.Accept()
-		if err != nil {
-			return err
-		}
-
-		connectedClients = append(connectedClients, conn)
-
-		tcpAddr, err := net.ResolveTCPAddr("tcp", conn.LocalAddr().String())
-		if err != nil {
-			conn.Close()
-			return err
-		}
-
-		conn.Write([]byte("Connected: " + tcpAddr.IP.String() + "\r\n"))
-
-		go handleConnection(conn)
+	conn, err := listener.Accept()
+	if err != nil {
+		return err
 	}
+
+	connectedClients = append(connectedClients, conn)
+
+	tcpAddr, err := net.ResolveTCPAddr("tcp", conn.LocalAddr().String())
+	if err != nil {
+		conn.Close()
+		return err
+	}
+
+	conn.Write([]byte("Connected: " + tcpAddr.IP.String() + "\r\n"))
+
+	go handleConnection(conn)
+	return nil
 }
 
 func handleConnection(conn net.Conn) {
