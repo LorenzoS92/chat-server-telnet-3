@@ -11,6 +11,7 @@ COPY . .
 
 RUN go build -o /chat-server
 
+ENV CHAT_PORT=":10000"
 EXPOSE 10000
 
 CMD [ "/chat-server" ]
