@@ -1,9 +1,8 @@
 # GO Chat Server
 
 Chat Server is a server written in GO that provides telnet chat functionality with the port :10000.
-Every connected client will receive text written from others client.
 
-Private project by Lorenzo Saraniti
+Every connected client will receive text written from others client.
 
 ## Prerequisites
 
